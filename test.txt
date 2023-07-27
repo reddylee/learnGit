@@ -6,3 +6,6 @@ This is a test to find out how to fix the conflict.
 merge test.
 
 compare.
+
+compare again.
+

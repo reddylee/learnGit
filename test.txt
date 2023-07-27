@@ -1,3 +1,5 @@
 this is a test file.
 
-This is a Test to find how to fix the conflict.
+
+This is a test to find out how to fix the conflict.
+

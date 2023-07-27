@@ -9,3 +9,5 @@ compare.
 
 compare again.
 
+soft reset.
+

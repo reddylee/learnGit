@@ -18,3 +18,4 @@ conflict Reddy.
 
 revert.
 
+Learn more about git on: https://git-scm.com

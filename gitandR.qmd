@@ -4,6 +4,15 @@ format: html
 editor: visual
 ---
 
+## Setup
+```{r setup}
+library(tidyverse)
+library(MASS)
+library(matlib)
+library(expm)
+```
+
+
 ## Quarto
 
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
@@ -25,5 +34,137 @@ You can add options to executable code like this
 
 The `echo: false` option disables the printing of code (only output is displayed).
 
+```{r}
+A <- matrix(c(-3,-2,1,0),2)
+A
+```
+```{r}
+eigen(A)
+fractions(eigen(A)[[2]])
+```
+```{r}
+B <- c(1,2)
+A%*%B
+```
+```{r}
+(-0.707)^2
+(-0.4472136)^2
+(-0.8944272)^2
+```
+```{r}
+A <- matrix(c(1,4,1,1),2)
+A
+eigen(A)
+solve(A)
+```
 
+```{r}
+B <- matrix(c(-2,4,1,-2),2)
+B
+C <- matrix(c(2,4,1,2),2)
+C
+solve(B)
+solve(C)
+```
+```{r}
+
+a <- matrix(c(3,0,0,-1),2)
+a
+A%*%eigen(A)[[2]] #AP
+eigen(A)[[2]]%*%a
+```
+```{r}
+A <- matrix(c(1,1,1,0),2)
+A
+
+eigen(A)
+```
+
+```{r}
+(-1+sqrt(5))/2
+```
+
+```{r}
+x <- seq(-10, 20, by = 0.1)  # Adjust the range and increment as needed
+y <- ((-1+sqrt(5))/2) * x
+data <- data.frame(x = x, y = y)
+ggplot(data, aes(x = x, y = y)) +
+  geom_line(color = "blue") +
+  labs(title = "Plot of y = 0.6180333x", x = "x", y = "y")
+
+```
+```{r}
+fb <- 970
+fb*(-1+sqrt(5))/2
+fb*(1+sqrt(5))/2
+```
+
+```{r}
+A <- matrix(c(0.8,0.2,0.1,0.9),2)
+A 
+eigen(A)
+```
+```{r}
+eigen(A)[[1]]%*%eigen(A)[[2]]
+```
+```{r}
+A <- matrix(c(3,0,1,2),2)
+A
+eigen(A)
+```
+```{r}
+A <- matrix(c(-1,0,0,2),2)
+A
+eigen(A)
+```
+```{r}
+B <- matrix(c(-5,0,0,0,
+              0,-2,0,0,
+              0,0,-4,0,
+              0,0,0,4),4)
+B
+eigen(B)
+```
+```{r}
+C <- matrix(c(1,0,0,0,
+              0,2,0,0,
+              0,0,3,0,
+              0,0,0,4),4)
+C
+eigen(C)
+```
+```{r}
+D <- matrix(c(3,1,4,1),2)
+D^100
+```
+```{r}
+D <- matrix(c(3,0,1,2),2)
+D^100
+eigen(D)
+E <- matrix(eigen(D)[[2]],2)
+E
+solve(E)%*%D%*%E
+```
+```{r}
+V <- matrix(c(2,1+sqrt(5),2,1-sqrt(5)),2)
+V
+eigen(V)
+```
+```{r}
+X <- matrix(c(0,1,1,1),2)
+X
+mpower(X,1000)
+X%^%1000
+```
+```{r}
+A <- matrix(c(3,0,1,2),2)
+A
+eigen(A)
+A%*%c(-1,1)
+```
+```{r}
+A <- matrix(c(-1,2,-4,3),2)
+A
+exp(A)
+```
 

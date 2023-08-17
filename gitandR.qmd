@@ -220,4 +220,106 @@ A
 mpower(A,10)
 A%^%10
 ```
+```{r}
+A <- matrix(c(1,0,sqrt(2),1,0,-sqrt(2)),3)
+A
+E <- t(A)%*%A
+E
+solve(E)
+eigen(E)
+1/sqrt(2)
+```
+```{r}
+svd(A)
+SVD(A)
+```
+```{r}
+SVD(A)
+```
+```{r}
+svdDemo(A)
+```
+```{r}
+A <- matrix(c(1,2,6,2,3,9,6,9,7),3)
+A
+
+solve(A)
+
+eigen(A)
+
+svd(A)
+```
+```{r}
+O <- eigen(A)[[2]]
+O
+solve(O)
+```
+```{r}
+O2 <- O*O
+```
+```{r}
+rowSums(O2)
+colSums(O2)
+```
+```{r}
+?matlib
+```
+
+```{r}
+#A <- matrix(c(1,4,8,2,4,9),2)
+#A <- matrix(c(3,2,2,3,2,-2),2)
+A <- matrix(c(1,3,4,2,3,7,8,3,5),3)
+A
+AT <- A%*%t(A)
+AT
+TA <- t(A)%*%A
+TA
+E1 <- eigen(AT)
+E2 <- eigen(TA)
+E1
+E2
+```
+```{r}
+LMD <- matrix(c(sqrt(E1[[1]][1]),0,0,0,sqrt(E1[[1]][2]),0,0,0,sqrt(E1[[1]][3])),3)
+LMD
+```
+```{r}
+E1[[2]]%*%LMD%*%t(E2[[2]])
+A
+```
+```{r}
+E1[[2]]
+LMD
+t(E2[[2]])
+```
+```{r}
+B <- c(0.6419538, -0.7667433, 0.7667433,0.6419538)
+B^2
+```
+```{r}
+A
+SVD(A)
+svd <- svd(A)
+```
+```{r}
+D <- matrix(c(svd$d[1],0,0,svd$d[2],0,0),2)
+D
+svd$u%*%D%*%svd$v
+```
+```{r}
+A <- matrix(c(1,4,8,2,4,9),2)
+B <- matrix(c(3,2,2,3,2,-2),2)
+A
+B
+svd(A)
+SVD(A)
+svd(B)
+SVD(B)
+```
+```{r}
+C <- matrix(c(1,3,4,2,3,7,8,3,5),3)
+C
+svd(C)
+SVD(C)
+```
 

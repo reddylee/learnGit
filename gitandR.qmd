@@ -266,9 +266,9 @@ colSums(O2)
 ```
 
 ```{r}
-#A <- matrix(c(1,4,8,2,4,9),2)
+A <- matrix(c(1,4,8,2,4,9),2)
 #A <- matrix(c(3,2,2,3,2,-2),2)
-A <- matrix(c(1,3,4,2,3,7,8,3,5),3)
+#A <- matrix(c(1,3,4,2,3,7,8,3,5),3)
 A
 AT <- A%*%t(A)
 AT
@@ -280,13 +280,20 @@ E1
 E2
 ```
 ```{r}
-LMD <- matrix(c(sqrt(E1[[1]][1]),0,0,0,sqrt(E1[[1]][2]),0,0,0,sqrt(E1[[1]][3])),3)
+LMD <- matrix(c(sqrt(E1[[1]][1]),0,0,sqrt(E1[[1]][2])),2)
 LMD
 ```
 ```{r}
-E1[[2]]%*%LMD%*%t(E2[[2]])
+E1[[2]]%*%LMD%*%t(E2[[2]][,1:2])
 A
+svd(A)
 ```
+```{r}
+E1[[2]]
+E2[[2]][,1:2]
+```
+
+
 ```{r}
 E1[[2]]
 LMD
@@ -321,5 +328,102 @@ C <- matrix(c(1,3,4,2,3,7,8,3,5),3)
 C
 svd(C)
 SVD(C)
+```
+```{r}
+A <- matrix(c(2,4,8,3,9,1),2)
+A
+
+s <- svd(A)
+s
+d <- matrix(c(s$d[1],0,0,s$d[2]),2)
+d
+```
+```{r}
+s$u%*%d%*%t(s$v)
+s$v%*%d%*%t(s$u)
+
+```
+```{r}
+eigen(A%*%t(A))
+eigen(t(A)%*%A)
+```
+```{r}
+A <- matrix(c(3,5,9,4,0,1,2,8,6,7,3,1),3)
+A
+AT <- A%*%t(A)
+TA <- t(A)%*%A
+AT
+TA
+EAT <- eigen(AT)
+ETA <- eigen(TA)
+```
+```{r}
+D <- matrix(c(EAT$values[1],0,0,0,EAT$values[2],0,0,0,EAT$values[3]),3)
+D
+EAT
+ETA
+```
+```{r}
+AT
+EAT$vectors%*%D%*%t(EAT$vectors)
+```
+```{r}
+TD <- matrix(c(ETA$values[1],0,0,0,0,ETA$values[2],0,0,0,0,ETA$values[3],0,0,0,0,ETA$values[4]),4)
+TD
+EAT
+ETA
+```
+
+```{r}
+TA
+ETA$vectors%*%TD%*%t(ETA$vectors)
+```
+
+```{r}
+A
+SA <- svd(A)
+SA
+DA <- matrix(c(SA$d[1],0,0,0,SA$d[2],0,0,0,SA$d[3]),3)
+DA
+```
+```{r}
+A
+SA$u%*%DA%*%t(SA$v)
+```
+```{r}
+a <- matrix(c(2,0,0,sqrt(2)),2)
+a
+solve(a)
+
+```
+
+```{r}
+#A <- matrix(c(3,4,0,5),2)
+#A <- matrix(c(1.8,4.4,1.2,4.6),2)
+A <- matrix(c(1.5,4.5,3,9),2)
+#A <- matrix(c(0,8,3,1),2)
+A
+svd(A)
+```
+```{r}
+# A <- matrix(c(3,5,5,9,
+#               1,9,3,7,
+#               4,2,5,9,
+#               1,6,8,3),4)
+
+A <- matrix(c(3,5,5,9,
+              1,9,3,7,
+              4,2,5,9,
+              1,6,8,3,
+              3,6,1,8,
+              9,3,2,7),4)
+
+A
+SA <- svd(A)
+SA
+```
+```{r}
+A
+SA$d[1]*SA$u[,1]%*%t(SA$v[,1])+SA$d[2]*SA$u[,2]%*%t(SA$v[,2])+SA$d[3]*SA$u[,3]%*%t(SA$v[,3])+SA$d[4]*SA$u[,4]%*%t(SA$v[,4])
 ```
 

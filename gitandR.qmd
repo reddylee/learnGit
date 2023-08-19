@@ -426,4 +426,11 @@ SA
 A
 SA$d[1]*SA$u[,1]%*%t(SA$v[,1])+SA$d[2]*SA$u[,2]%*%t(SA$v[,2])+SA$d[3]*SA$u[,3]%*%t(SA$v[,3])+SA$d[4]*SA$u[,4]%*%t(SA$v[,4])
 ```
+```{r}
+A <- matrix(c(9,4,
+              4,3),2,byrow = T)
+A
+
+eigen(A) 
+```
 

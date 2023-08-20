@@ -433,4 +433,9 @@ A
 
 eigen(A) 
 ```
+```{r}
+A <- matrix(c(3,1,-1,1),2)
+A
+eigen(A)
+```
 
